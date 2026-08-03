@@ -230,6 +230,31 @@
     });
   });
 })();
-</script>
+window.addEventListener("load", function () {
+  const destino = window.location.hash.replace("#", "");
+
+  if (destino) {
+    document.querySelectorAll(".page").forEach(function (pagina) {
+      pagina.classList.remove("active");
+    });
+
+    document.querySelectorAll(".nav").forEach(function (boton) {
+      boton.classList.remove("active");
+    });
+
+    const paginaDestino = document.getElementById(destino);
+    const botonDestino = document.querySelector(
+      '.nav[data-target="' + destino + '"]'
+    );
+
+    if (paginaDestino) {
+      paginaDestino.classList.add("active");
+    }
+
+    if (botonDestino) {
+      botonDestino.classList.add("active");
+    }
+  }
+});</script>
 </body>
 </html>
